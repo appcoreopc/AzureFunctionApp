@@ -15,12 +15,11 @@ variables:
 steps:
 - script: dotnet build src/AzureFunctionApp.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-
 - script: dotnet publish src/AzureFunctionApp.sln --configuration $(buildConfiguration)
   displayName: 'dotnet publish src/AzureFunctionApp.sln $(buildConfiguration)'
 - script: dotnet test src/AzureFunctionApp.sln 
   displayName: 'dotnet unit test'
-- script: dotnet pack src/AzureFunctionApp.sln 
+- script: dotnet pack src/ClaimSubmission/ClaimSubmission.csproj
   displayName: 'dotnet packing'  
 - script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/
   displayName: 'publish path'

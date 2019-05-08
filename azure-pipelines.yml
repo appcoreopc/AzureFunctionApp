@@ -28,6 +28,6 @@ steps:
   displayName: 'publish path/bin'
 - task: AzureFunctionApp@1
   inputs:
-    azureSubscription: '$(azureSubscription)'
+    azureSubscription: '$(azuresubscription)'
     appType: functionAppLinux
     appName: 'AzureApp'

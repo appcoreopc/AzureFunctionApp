@@ -11,7 +11,6 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-
 steps:
 - script: dotnet build src/AzureFunctionApp.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
@@ -21,8 +20,10 @@ steps:
   displayName: 'dotnet unit test'
 - script: dotnet pack src/AzCore.Shared/AzCore.Shared.csproj --output nupkg
   displayName: 'dotnet packing'  
-- script: ls /home/vsts/work/1/s/src/AzCore.Shared/nupkg
-  displayName: 'publish path'
+- script: ls /home/vsts/work/1/s/src/AzCore.Shared/bin/
+  displayName: 'publish azcore path'
+- script: ls /home/vsts/work/1/s/src/AzCore.Shared/bin/Release
+  displayName: 'publish azcore path'
 - script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/
   displayName: 'publish path'
 - script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/bin

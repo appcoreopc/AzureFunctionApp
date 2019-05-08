@@ -15,8 +15,7 @@ variables:
 steps:
 - script: dotnet build src/AzureFunctionApp.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- script: cd 
-  displayName: 'Current directory'
-- script: dotnet publish --configuration $(buildConfiguration)
+
+- script: dotnet publish src/AzureFunctionApp.sln --configuration $(buildConfiguration)
   displayName: 'dotnet publish src/AzureFunctionApp.sln $(buildConfiguration)'
   

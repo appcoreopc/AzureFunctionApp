@@ -20,3 +20,5 @@ steps:
   displayName: 'dotnet publish src/AzureFunctionApp.sln $(buildConfiguration)'
 - script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/
   displayName: 'publish path'
+- script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/bin
+  displayName: 'publish path/bin'

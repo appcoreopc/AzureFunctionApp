@@ -20,6 +20,8 @@ steps:
   displayName: 'dotnet unit test'
 - script: dotnet pack src/AzCore.Shared/AzCore.Shared.csproj --output nupkg
   displayName: 'dotnet packing'  
+- script: ls /home/vsts/work/1/s/src
+  displayName: 'publish  root path'
 - script: ls /home/vsts/work/1/s/src/AzCore.Shared/bin/
   displayName: 'publish azcore path'
 - script: ls /home/vsts/work/1/s/src/AzCore.Shared/bin/Release

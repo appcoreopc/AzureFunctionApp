@@ -18,11 +18,4 @@ steps:
 
 - script: dotnet publish src/AzureFunctionApp.sln --configuration $(buildConfiguration)
   displayName: 'dotnet publish src/AzureFunctionApp.sln $(buildConfiguration)'
-  
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
+- script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/

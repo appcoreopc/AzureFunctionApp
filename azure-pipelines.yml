@@ -26,10 +26,3 @@ steps:
   displayName: 'publish path'
 - script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/bin
   displayName: 'publish path/bin'
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '/home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/bin'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.Repository.Name)_$(Build.BuildId).zip'
-    replaceExistingArchive: true

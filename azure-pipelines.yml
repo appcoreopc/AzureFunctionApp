@@ -19,7 +19,7 @@ steps:
   displayName: 'dotnet publish src/AzureFunctionApp.sln $(buildConfiguration)'
 - script: dotnet test src/AzureFunctionApp.sln 
   displayName: 'dotnet unit test'
-- script: dotnet pack src/ClaimSubmission/ClaimSubmission.csproj
+- script: dotnet pack src/AzCore.Shared/AzCore.Shared.csproj
   displayName: 'dotnet packing'  
 - script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/
   displayName: 'publish path'

@@ -13,8 +13,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration src/$(buildConfiguration)
+- script: dotnet build src/AzureFunctionApp.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- script: dotnet publish --configuration src/$(buildConfiguration)
+- script: dotnet publish --configuration $(buildConfiguration)
   displayName: 'dotnet publish $(buildConfiguration)'
   

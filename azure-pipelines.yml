@@ -27,7 +27,9 @@ steps:
   displayName: 'publish azcore path'
 - script: ls /home/vsts/work/1/s/src/AzCore.Shared/bin/Release
   displayName: 'publish azcore path'
-- script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/
-  displayName: 'publish path'
+- script: ls /home/vsts/work/1/s/src/ClaimSubmission/
+  displayName: 'claim root path'
+- script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release
+  displayName: 'claim release path'  
 - script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/bin
   displayName: 'publish path/bin'

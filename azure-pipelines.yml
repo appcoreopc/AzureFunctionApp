@@ -1,0 +1,35 @@
+# ASP.NET Core
+
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+steps:
+- script: dotnet build src/AzureFunctionApp.sln --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+- script: dotnet publish src/AzureFunctionApp.sln --configuration $(buildConfiguration)
+  displayName: 'dotnet publish src/AzureFunctionApp.sln $(buildConfiguration)'
+- script: dotnet test src/AzureFunctionApp.sln 
+  displayName: 'dotnet unit test'
+- script: dotnet pack src/ClaimSubmission/ClaimSubmission.csproj --output nupkg
+  displayName: 'dotnet packing'  
+- script: ls /home/vsts/work/1/s/src
+  displayName: 'publish  root path'
+- script: ls /home/vsts/work/1/s/src/AzCore.Shared/bin/
+  displayName: 'publish azcore path'
+- script: ls /home/vsts/work/1/s/src/AzCore.Shared/bin/Release
+  displayName: 'publish azcore path'
+- script: ls /home/vsts/work/1/s/src/ClaimSubmission/
+  displayName: 'claim root path'
+- script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release
+  displayName: 'claim release path'  
+- script: ls /home/vsts/work/1/s/src/ClaimSubmission/bin/Release/netcoreapp2.1/publish/bin
+  displayName: 'publish path/bin'

@@ -17,9 +17,9 @@ module "test-storage" {
 
 module "test-vault" {
     source = "./modules/azure-vault"
-    
     resource_group_name = "${module.test-rg.rg_name}"    
-    vaultname = "appvaultdev"
+    vaultname = "vaultapp"
+    storevalue = "${module.test-storage.sas_url_query_string}"
     location = "${module.test-rg.rg_location}"
 }
 

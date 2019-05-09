@@ -13,9 +13,6 @@ pool:
 variables:
   buildConfiguration: 'Release'
 steps:
-- task: GitVersionNetCore@5
-  inputs:
-    updateAssemblyInfo: true
 - script: dotnet build src/AzureFunctionApp.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 - script: dotnet publish src/AzureFunctionApp.sln --configuration $(buildConfiguration)

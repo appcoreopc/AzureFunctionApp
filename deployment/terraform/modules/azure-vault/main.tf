@@ -11,8 +11,8 @@ resource "azurerm_key_vault" "test" {
   }
 
   access_policy {
-    tenant_id = "c7edfba3-a241-4b80-a92f-a311dc6cd2df"
-    object_id = "90644e82-4c79-4c75-8d46-990215561997"
+    tenant_id = ""
+    object_id = ""
 
     key_permissions = [
       "create",

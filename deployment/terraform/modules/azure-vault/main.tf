@@ -11,8 +11,9 @@ resource "azurerm_key_vault" "test" {
   }
 
   access_policy {
-    tenant_id = ""
-    object_id = ""
+    
+   tenant_id = "${data.azurerm_client_config.current.tenant_id}"
+    object_id = "${data.azurerm_client_config.current.service_principal_object_id}"
 
     key_permissions = [
       "create",
@@ -23,11 +24,18 @@ resource "azurerm_key_vault" "test" {
       "set",
       "get",
       "delete",
+      "list"
+    ]
+    
+    storage_permissions = [
+      "set",
+      "get",
+      "delete",
     ]
   }
 
 
-  tags = {
+ tags = {
     environment = "Production"
   }
 }
@@ -37,7 +45,4 @@ resource "azurerm_key_vault_secret" "test" {
   value    = "${var.storevalue}"
   key_vault_id = "${azurerm_key_vault.test.id}"
 
-  tags = {
-    environment = "Production"
-  }
 }

@@ -5,7 +5,11 @@ az storage account create --name devtestappstore --location australiaeast --reso
 az functionapp create --resource-group myResourceGroup --consumption-plan-location australiaeast \
 --name ClaimSubmissionFunction --storage-account  devtestappstore --runtime dotnet
 
+To Deploy 
+
 func azure functionapp publish ClaimSubmissionFunction
+
+func azure functionapp publish ClaimSubmissionFunction --publish-local-settings 
 
 
 To test it out 

@@ -17,7 +17,10 @@ namespace ClaimSubmission
 {
     public static class ClaimSubmissionFunction
     {
-        private const string ErroSubmittingClaimMessage = "Error submmitting claim.";
+        private const string ErrorSubmittingClaimMessage = "Error submmitting claim from input source";
+
+        private const string ErrorConnectionStringMessage = "Error getting connection string.";
+
         private const string ClaimSubmissionSuccessful = "Submission successful";
 
         [FunctionName("ClaimSubmissionFunction")]
@@ -28,7 +31,7 @@ namespace ClaimSubmission
 
             if (messageConnectionString == null)
             {
-                return new BadRequestObjectResult(ErroSubmittingClaimMessage);
+                return new BadRequestObjectResult(ErrorSubmittingClaimMessage);
             }
 
             var userClaimFormData = await MessageConverter.Deserialize<ClaimForm>(req.Body);
@@ -37,7 +40,7 @@ namespace ClaimSubmission
 
             return userClaimFormData != null
                 ? (ActionResult)new OkObjectResult(ClaimSubmissionSuccessful)
-                : new BadRequestObjectResult(ErroSubmittingClaimMessage);
+                : new BadRequestObjectResult(ErrorSubmittingClaimMessage);
         }
 
         public static Message CreateMessage(ClaimForm message)
